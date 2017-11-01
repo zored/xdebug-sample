@@ -14,7 +14,11 @@ PHP_FILE='./src/index.php'
 GET_MACHINE_IP="netstat -rn | grep ^0\.0\.0\.0 | awk '{{ print \$2 }}'"
 MACHINE_HOST_IP=$(docker-machine ssh $DOCKER_MACHINE_NAME "$GET_MACHINE_IP"|| echo '')
 IDE_IP=${IDE_IP:-$MACHINE_HOST_IP}
-[[ "$IDE_IP" = "" ]] && exit 1
+if [[ "$IDE_IP" = "" ]]; then
+    echo "Set host IP that is available from your container:"
+    echo "IDE_IP=1.2.3.4 $0"
+    exit 1
+fi
 
 # Explicit xDebug host config:
 XDEBUG_CONFIG="remote_host=$IDE_IP"
