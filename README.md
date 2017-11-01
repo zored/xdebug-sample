@@ -2,9 +2,7 @@
 Docker xDebug configuration for IDE.
 
 ## Run
-- Put breakpoint in your IDE `src/index.php`.
-- Run `bin/run.sh` and follow instructions.
-- **Have fun**.
+Just run `bin/run.sh` and follow instructions.
 
 ## Learn
 - [`php.sh`](./bin/php.sh) builds and runs Docker image.
